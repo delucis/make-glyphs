@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/delucs/make-glyphs.git"
+    "url": "git+https://github.com/delucis/make-glyphs.git"
   },
   "keywords": [
     "glyphs",
@@ -21,9 +21,9 @@
   "author": "Chris Swithinbank <swithinbank@gmail.com> (http://chrisswithinbank.net/)",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/delucs/make-glyphs/issues"
+    "url": "https://github.com/delucis/make-glyphs/issues"
   },
-  "homepage": "https://github.com/delucs/make-glyphs#readme",
+  "homepage": "https://github.com/delucis/make-glyphs#readme",
   "dependencies": {
     "joi": "^13.2.0",
     "load-nextstep-plist": "^1.0.2",
