@@ -29,3 +29,16 @@ test('increment versions', async test => {
   test.is(data.versionMajor, 1)
   test.is(data.versionMinor, 0)
 })
+
+test('fail .version() if type is wrong', test => {
+  test.throws(() => { makeGlyphs.version({}, 'phrygian') }, TypeError)
+})
+
+test('missing version properties on font', async test => {
+  const data = await makeGlyphs.load(testGlyphs)
+  delete data.versionMajor
+  delete data.versionMinor
+  const versioned = makeGlyphs.version(data)
+  test.is(versioned.versionMajor, 0)
+  test.is(versioned.versionMinor, 1)
+})
