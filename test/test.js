@@ -30,6 +30,14 @@ test('increment versions', async test => {
   test.is(data.versionMinor, 0)
 })
 
+test('increment non-zero minor versions', async test => {
+  const data = await makeGlyphs.load(testGlyphs)
+  data.versionMinor = 1
+  const versioned = makeGlyphs.version(data)
+  test.is(versioned.versionMajor, 1)
+  test.is(versioned.versionMinor, 2)
+})
+
 test('fail .version() if type is wrong', test => {
   test.throws(() => { makeGlyphs.version({}, 'phrygian') }, TypeError)
 })
