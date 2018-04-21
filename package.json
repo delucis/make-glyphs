@@ -1,0 +1,36 @@
+{
+  "name": "make-glyphs",
+  "version": "0.0.1",
+  "description": "Build tool for generating .glyphs font files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delucs/make-glyphs.git"
+  },
+  "keywords": [
+    "glyphs",
+    "fonts",
+    "file-format",
+    "make",
+    "build",
+    "tool"
+  ],
+  "author": "Chris Swithinbank <swithinbank@gmail.com> (http://chrisswithinbank.net/)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/delucs/make-glyphs/issues"
+  },
+  "homepage": "https://github.com/delucs/make-glyphs#readme",
+  "dependencies": {
+    "joi": "^13.2.0",
+    "load-nextstep-plist": "^1.0.2",
+    "lodash.clonedeep": "^4.5.0",
+    "write-glyphs-file": "^1.0.1"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0"
+  }
+}
