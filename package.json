@@ -1,6 +1,6 @@
 {
   "name": "make-glyphs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Build tool for generating .glyphs font files.",
   "main": "index.js",
   "scripts": {
