@@ -1,4 +1,4 @@
-# make-glyphs
+# make-glyphs [![Build Status](https://travis-ci.org/delucis/make-glyphs.svg?branch=master)](https://travis-ci.org/delucis/make-glyphs)
 
 > Tools for working with `.glyphs` font files
 
