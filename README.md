@@ -1,8 +1,13 @@
 # make-glyphs
 
-> Build tool for working with `.glyphs` font files
+> Tools for working with `.glyphs` font files
 
 Load, validate, manipulate, and write font files for [Glyphs](http://glyphsapp.com/) using Javascript.
+
+
+## ⚠️ Work in Progress ⚠️
+
+The API described below is functional but may change. Testing and contributions are welcome. Planned features include merging multiple files, subsetting glyphs, and mapping glyphs to new unicode positions.
 
 
 ## Install
