@@ -1,4 +1,4 @@
-# make-glyphs [![Build Status](https://travis-ci.org/delucis/make-glyphs.svg?branch=master)](https://travis-ci.org/delucis/make-glyphs)
+# make-glyphs [![Build Status](https://travis-ci.org/delucis/make-glyphs.svg?branch=master)](https://travis-ci.org/delucis/make-glyphs) [![Coverage Status](https://coveralls.io/repos/github/delucis/make-glyphs/badge.svg?branch=master)](https://coveralls.io/github/delucis/make-glyphs?branch=master)
 
 > Tools for working with `.glyphs` font files
 
