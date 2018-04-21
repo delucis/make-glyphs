@@ -34,11 +34,20 @@ test('fail .version() if type is wrong', test => {
   test.throws(() => { makeGlyphs.version({}, 'phrygian') }, TypeError)
 })
 
-test('missing version properties on font', async test => {
+test('missing version properties on .version()', async test => {
   const data = await makeGlyphs.load(testGlyphs)
   delete data.versionMajor
   delete data.versionMinor
   const versioned = makeGlyphs.version(data)
   test.is(versioned.versionMajor, 0)
   test.is(versioned.versionMinor, 1)
+})
+
+test('missing version properties on major .version()', async test => {
+  const data = await makeGlyphs.load(testGlyphs)
+  delete data.versionMajor
+  delete data.versionMinor
+  const versioned = makeGlyphs.version(data, 'major')
+  test.is(versioned.versionMajor, 1)
+  test.is(versioned.versionMinor, 0)
 })
