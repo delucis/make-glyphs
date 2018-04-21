@@ -1,7 +1,7 @@
 {
   "name": "make-glyphs",
   "version": "0.1.1",
-  "description": "Build tool for generating .glyphs font files.",
+  "description": "Tools for working with .glyphs font files.",
   "main": "index.js",
   "scripts": {
     "test": "nyc ava"
