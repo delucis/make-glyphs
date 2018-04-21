@@ -1,6 +1,6 @@
 {
   "name": "make-glyphs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tools for working with .glyphs font files.",
   "license": "GPL-3.0",
   "repository": "delucis/make-glyphs",
