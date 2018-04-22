@@ -7,7 +7,7 @@ Load, validate, manipulate, and write font files for [Glyphs](http://glyphsapp.c
 
 ## ⚠️ Work in Progress ⚠️
 
-The API described below is functional but may change. Testing and contributions are welcome. Planned features include merging multiple files, subsetting glyphs, and mapping glyphs to new unicode positions.
+The API described below is functional but may change. Testing and contributions are welcome. Planned features include merging multiple files and subsetting glyphs.
 
 
 ## Install
@@ -28,6 +28,12 @@ GLYPHS.load('my-font.glyphs')
 
 ## API
 
+- [`.load(filepath)`](#-load-filepath-)
+- [`.map(fontdata, mapping, [options])`](#-map-fontdata-mapping-options-)
+- [`.validate(fontdata)`](#-validate-fontdata-)
+- [`.version(fontdata, [type])`](#-version-fontdata-type-)
+- [`.write(filepath, fontdata, [options])`](#-write-filepath-fontdata-options-)
+
 
 ### .load(filepath)
 
@@ -40,6 +46,46 @@ GLYPHS.load('my-font.glyphs')
   .then(fontdata => {
     console.log(fontdata)
   })
+```
+
+
+### .map(fontdata, mapping, [options])
+
+- `fontdata` — an `Object` representing a Glyphs file.
+
+- `mapping` — an `Object` mapping source glyphs to destination glyphs. Keys should be unicode strings, e.g. `'0041'`, and values either a unicode string or an array of unicode strings, i.e. `'0061'` or `['0061', '0040']`.
+
+- `options` — an optional `Object` with any of the following properties
+  - `includeUnmappedGlyphs` — `Boolean` (default: `false`) If true, preserves any glyphs from the `fontdata` not included in `mapping`. Otherwise, these are discarded.
+  - `renameGlyphs` — `Boolean` (default: `true`) If `true`, tries to rename a mapped glyph using [`readable-glyph-names`](https://github.com/delucis/readable-glyph-names).
+  - `selectSourceByGlyphName` — `Boolean` (default: `false`) If `true`, uses the `glyphname` property to select source glyphs. Otherwise, the `unicode` property is used. When `true`, `mapping` might look like `{ A: '0061' }` instead of `{ '0041': '0061' }.`
+
+Returns a font data `Object`, in which glyphs from the input `fontdata` are mapped to new unicode positions.
+
+```js
+let font = {
+  glyphs: [
+    {
+      glyphname: 'A',
+      layers: [ /* ... */ ],
+      unicode: '0041'
+    }
+  ]
+  /* ... */
+}
+
+let mappedFont = GLYPHS.map(font, { '0041': '007A' })
+console.log(mappedFont)
+// => {
+//   glyphs: [
+//     {
+//       glyphname: 'z',
+//       layers: [ /* ... */ ],
+//       unicode: '007A'
+//     }
+//   ]
+//   /* ... */
+// }
 ```
 
 
