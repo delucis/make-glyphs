@@ -28,11 +28,11 @@ GLYPHS.load('my-font.glyphs')
 
 ## API
 
-- [`.load(filepath)`](#-load-filepath-)
-- [`.map(fontdata, mapping, [options])`](#-map-fontdata-mapping-options-)
-- [`.validate(fontdata)`](#-validate-fontdata-)
-- [`.version(fontdata, [type])`](#-version-fontdata-type-)
-- [`.write(filepath, fontdata, [options])`](#-write-filepath-fontdata-options-)
+- [`.load(filepath)`](#loadfilepath)
+- [`.map(fontdata, mapping, [options])`](#mapfontdata-mapping-options)
+- [`.validate(fontdata)`](#validatefontdata)
+- [`.version(fontdata, [type])`](#versionfontdata-type)
+- [`.write(filepath, fontdata, [options])`](#writefilepath-fontdata-options)
 
 
 ### .load(filepath)
