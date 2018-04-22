@@ -10,7 +10,7 @@ test('load & validate file', async test => {
   test.is(data.familyName, 'Test Font')
 })
 
-test('fail to validate', async test => {
+test('load & fail to validate', async test => {
   const err = await test.throws(makeGlyphs.load(testPlist))
   test.is(err.name, 'ValidationError')
 })
