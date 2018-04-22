@@ -37,7 +37,7 @@ GLYPHS.load('my-font.glyphs')
 
 ### .load(filepath)
 
-- `filepath` - a `String` containing the path to a `.glyphs` file to load
+- `filepath` — a `String` containing the path to a `.glyphs` file to load
 
 Returns a `Promise` for the parsed and validated Glyphs file as a Javascript `Object`.
 
@@ -56,8 +56,11 @@ GLYPHS.load('my-font.glyphs')
 - `mapping` — an `Object` mapping source glyphs to destination glyphs. Keys should be unicode strings, e.g. `'0041'`, and values either a unicode string or an array of unicode strings, i.e. `'0061'` or `['0061', '0040']`.
 
 - `options` — an optional `Object` with any of the following properties
+
   - `includeUnmappedGlyphs` — `Boolean` (default: `false`) If true, preserves any glyphs from the `fontdata` not included in `mapping`. Otherwise, these are discarded.
+
   - `renameGlyphs` — `Boolean` (default: `true`) If `true`, tries to rename a mapped glyph using [`readable-glyph-names`](https://github.com/delucis/readable-glyph-names).
+
   - `selectSourceByGlyphName` — `Boolean` (default: `false`) If `true`, uses the `glyphname` property to select source glyphs. Otherwise, the `unicode` property is used. When `true`, `mapping` might look like `{ A: '0061' }` instead of `{ '0041': '0061' }.`
 
 Returns a font data `Object`, in which glyphs from the input `fontdata` are mapped to new unicode positions.
@@ -91,7 +94,7 @@ console.log(mappedFont)
 
 ### .validate(fontdata)
 
-- `fontdata` - an `Object` representing a Glyphs file
+- `fontdata` — an `Object` representing a Glyphs file
 
 Validates that the passed `fontdata` `Object` is a valid representation of a Glyphs file, using [`joi`](https://github.com/hapijs/joi/). Called for you whenever you use `.load()` or `.write()`.
 
@@ -119,8 +122,9 @@ if (result.error) {
 
 ### .version(fontdata, [type])
 
-- `fontdata` - an `Object` representing a Glyphs file
-- `type` - either `'major'` or `'minor'` (defaults to `'minor'`)
+- `fontdata` — an `Object` representing a Glyphs file
+
+- `type` — either `'major'` or `'minor'` (defaults to `'minor'`)
 
 Returns `fontdata` with its `versionMajor` and `versionMinor` properties incremented. For example:
 
@@ -136,10 +140,13 @@ let newMajorVersion = GLYPHS.version(oldVersion, 'major')
 
 ### .write(filepath, fontdata, [options])
 
-- `filepath` - a `String` specifying where the file should be written
-- `fontdata` - an `Object` representing a Glyphs file
-- `options` - an optional `Object` with the following properties:
-  - `mode` - a `Number` specifying the [mode](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) used when writing the file (defaults to `0o666`)
+- `filepath` — a `String` specifying where the file should be written
+
+- `fontdata` — an `Object` representing a Glyphs file
+
+- `options` — an optional `Object` with the following properties:
+
+  - `mode` — a `Number` specifying the [mode](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) used when writing the file (defaults to `0o666`)
 
 Validates `fontdata`, converts it to a `String`, and writes it to disk.
 
