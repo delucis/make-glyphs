@@ -7,7 +7,7 @@ Load, validate, manipulate, and write font files for [Glyphs](http://glyphsapp.c
 
 ## ⚠️ Work in Progress ⚠️
 
-The API described below is functional but may change. Testing and contributions are welcome. Planned features include merging multiple files and subsetting glyphs.
+The API described below is functional but may change. Testing and contributions are welcome. See [issues](https://github.com/delucis/make-glyphs/issues) for known problems and to report any bugs or feature requests.
 
 
 ## Install
