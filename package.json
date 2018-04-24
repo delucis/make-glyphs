@@ -37,6 +37,7 @@
     "load-nextstep-plist": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "readable-glyph-names": "^1.0.0",
+    "unicode-blocks": "^2.0.4",
     "write-glyphs-file": "^1.0.1"
   },
   "devDependencies": {
