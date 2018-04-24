@@ -20,9 +20,14 @@ The API described below is functional but may change. Testing and contributions 
 ```js
 const GLYPHS = require('make-glyphs')
 
+// load a .glyphs file
 GLYPHS.load('my-font.glyphs')
-  .then(font => GLYPHS.version(font)) // bumps versionMinor of font
-  .then(font => GLYPHS.write('my-font.glyphs', font))
+  // subset '!' and all capital letters
+  .then(font => GLYPHS.subset(font, ['0021', ['0041', '005A']]))
+  // increment the minor version
+  .then(font => GLYPHS.version(font))
+  // write the changes to a new font file
+  .then(font => GLYPHS.write('new-font.glyphs', font))
 ```
 
 
