@@ -30,6 +30,7 @@ GLYPHS.load('my-font.glyphs')
 
 - [`.load(filepath)`](#loadfilepath)
 - [`.map(fontdata, mapping, [options])`](#mapfontdata-mapping-options)
+- [`.subset(fontdata, subset)`](#subsetfontdata-subset)
 - [`.validate(fontdata)`](#validatefontdata)
 - [`.version(fontdata, [type])`](#versionfontdata-type)
 - [`.write(filepath, fontdata, [options])`](#writefilepath-fontdata-options)
@@ -89,6 +90,29 @@ console.log(mappedFont)
 //   ]
 //   /* ... */
 // }
+```
+
+
+### .subset(fontdata, subset)
+
+- `fontdata` — an `Object` representing a Glyphs file
+
+- `subset` — an `Array` representing the glyph ranges to subset.
+  Members of the array can be:
+
+  - a two-member `Array`, e.g. `['0041', '0061']`, which specifies the start and end of a unicode range
+
+  - a `String`, e.g. `'0041'`, which specifies a single unicode character
+
+  - a `String`, e.g. `'Arabic'`, which specifies a range by its [unicode block name](https://en.wikipedia.org/wiki/Unicode_block)
+
+Returns a font data `Object`, in which only the glyphs found in the `subset` range(s) are included from the input `fontdata`.
+
+```js
+let subset = ['Basic Latin', ['00A2', '00A5'], '2026']
+
+let subsetFont = GLYPHS.subset(fontdata, subset)
+// Returns glyphs in the ranges: U+0000..U+007F, U+00A2..U+00A5, U+2026
 ```
 
 
