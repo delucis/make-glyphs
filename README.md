@@ -193,7 +193,8 @@ GLYPHS.write('new-font.glyphs', fontdata)
 
 ## See also
 
-- [write-glyphs-file](https://github.com/delucis/write-glyphs-file) - Stringify and write a `.glyphs` font file atomically
+- [readable-glyph-names](https://github.com/delucis/readable-glyph-names) — Unicode string to readable character name mapping as JSON
+- [write-glyphs-file](https://github.com/delucis/write-glyphs-file) — Stringify and write a `.glyphs` font file atomically
 
 
 ## License
