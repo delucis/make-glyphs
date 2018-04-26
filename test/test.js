@@ -3,17 +3,6 @@ import test from 'ava'
 import makeGlyphs from '../'
 
 const testGlyphs = path.join(__dirname, 'test.glyphs')
-const testPlist = path.join(__dirname, 'test.plist')
-
-test('load & validate file', async test => {
-  const data = await makeGlyphs.load(testGlyphs)
-  test.is(data.familyName, 'Test Font')
-})
-
-test('load & fail to validate', async test => {
-  const err = await test.throws(makeGlyphs.load(testPlist))
-  test.is(err.name, 'ValidationError')
-})
 
 test('map A to a by unicode', async test => {
   const data = await makeGlyphs.load(testGlyphs)

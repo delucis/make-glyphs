@@ -24,6 +24,9 @@
     "lib/*",
     "index.js"
   ],
+  "bin": {
+    "make-glyphs": "bin/cli.js"
+  },
   "keywords": [
     "glyphs",
     "fonts",
@@ -36,6 +39,7 @@
     "joi": "^13.2.0",
     "load-nextstep-plist": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
+    "minimist": "^1.2.0",
     "readable-glyph-names": "^1.0.0",
     "unicode-blocks": "^2.0.4",
     "write-glyphs-file": "^1.0.1"
@@ -43,6 +47,7 @@
   "devDependencies": {
     "ava": "^0.25.0",
     "coveralls": "^3.0.0",
-    "nyc": "^11.7.1"
+    "nyc": "^11.7.1",
+    "tempy": "^0.2.1"
   }
 }
