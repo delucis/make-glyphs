@@ -105,7 +105,7 @@ GLYPHS.load('my-font.glyphs')
 
   - `renameGlyphs` — `Boolean` (default: `true`) If `true`, tries to rename a mapped glyph using [`readable-glyph-names`](https://github.com/delucis/readable-glyph-names).
 
-  - `selectSourceByGlyphName` — `Boolean` (default: `false`) If `true`, uses the `glyphname` property to select source glyphs. Otherwise, the `unicode` property is used. When `true`, `mapping` might look like `{ A: '0061' }` instead of `{ '0041': '0061' }.`
+  - `selectSourceByGlyphName` — `Boolean` (default: `false`) If `true`, uses the `glyphname` property to select source glyphs. Otherwise, the `unicode` property is used. When `true`, `mapping` might look like `{ A: '0061' }` instead of `{ '0041': '0061' }`.
 
 Returns a font data `Object`, in which glyphs from the input `fontdata` are mapped to new unicode positions.
 
