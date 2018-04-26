@@ -35,17 +35,50 @@ GLYPHS.load('my-font.glyphs')
 ### [Full API Documentation →](https://github.com/delucis/make-glyphs/blob/master/API.md)
 
 
+## Using `make-glyphs` as a build tool
 
+Installing this package will also install a `make-glyphs` command that you can use to set up builds for your project. To use this, you will need to create a `glyphs.config.js` file in your project root, describing your builds. Here’s an example:
 
 ```js
+// glyphs.config.js
+module.exports = {
+  builds: {
+    'basic-latin': {
+      load: 'src/my-font.glyphs',
+      process: [
+        ['subset', ['Basic Latin']],
+        ['set', 'familyName', (name) => `${name} Basic`]
+      ],
+      write: 'build/my-font-basic-latin.glyphs'
+    },
+    version: {
+      load: 'src/my-font.glyphs',
+      process: [
+        ['version']
+      ],
+      write: 'src/my-font.glyphs'
     }
+  }
 }
 ```
 
+See [documentation for the `.build()` method](https://github.com/delucis/make-glyphs/blob/master/API.md#buildbuilds) for more details.
 
+Now you can set up npm scripts to run these builds in your `package.json`…
+```json
+/* package.json */
+{
+  "scripts": {
+    "subset": "make-glyphs --build basic-latin",
+    "version": "make-glyphs --build version"
+  }
 }
 ```
 
+…and then run the scripts from the command line:
+```sh
+npm run subset                    # runs the 'basic-latin' build
+npm run version                   # runs the 'version' build
 ```
 
 
