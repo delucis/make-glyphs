@@ -33,12 +33,50 @@ GLYPHS.load('my-font.glyphs')
 
 ## API
 
+- [`.build(builds)`](#buildbuilds)
 - [`.load(filepath)`](#loadfilepath)
 - [`.map(fontdata, mapping, [options])`](#mapfontdata-mapping-options)
+- [`.set(fontdata, key, value)`](#setfontdata-key-value)
 - [`.subset(fontdata, subset)`](#subsetfontdata-subset)
 - [`.validate(fontdata)`](#validatefontdata)
 - [`.version(fontdata, [type])`](#versionfontdata-type)
 - [`.write(filepath, fontdata, [options])`](#writefilepath-fontdata-options)
+
+
+### .build(builds)
+
+- `builds` — an `Object` specifying a full build task. It should contain at least one `Object`, defining a build:
+
+  - Each object in `builds` should have the following properties:
+
+    - `load` — a `String` specifying the source file to load
+    - `process` (optional) — an `Array` of tasks to run. Each task should be defined as follows: `[ taskType, arguments... ]`, e.g. `['set', 'familyName', 'New Name']`.
+    - `write` — a `String` specifying the path to write the new font to
+
+`.build()` provides a way to specify an entire font-processing task, loading, processing, and saving a font, using a Javascript object to specify all the steps.
+
+```js
+const MY_BUILDS = {
+  myBuild: {
+    load: 'my-font.glyphs',
+    process: [
+      ['subset', [['0041', '0061']]],
+      ['set', 'familyName', 'My Subset Font'],
+      ['version']
+    ],
+    write: 'my-subset-font.glyphs'
+  }
+}
+
+GLYPHS.build(MY_BUILDS)
+
+// The above is equivalent to:
+GLYPHS.load('my-font.glyphs')
+  .then(font => GLYPHS.subset(font, [['0041', '0061']]))
+  .then(font => GLYPHS.set(font, 'familyName', 'My Subset Font'))
+  .then(GLYPHS.version)
+  .then(font => GLYPHS.write('my-subset-font.glyphs', font))
+```
 
 
 ### .load(filepath)
@@ -94,6 +132,28 @@ console.log(mappedFont)
 //     }
 //   ]
 //   /* ... */
+// }
+```
+
+
+### .set(fontdata, key, value)
+
+- `fontdata` — an `Object` representing a Glyphs file
+
+- `key` — the key in the `fontdata` to set as a `String`
+
+- `value` — the value to set the key to, can be any Javascript type. If a `Function` is passed, it will be called with the current value (if present) as its first argument and the entire `fontdata` representation as its second argument.
+
+This allows you to directly set a root property of the `fontdata`. This can also be achieved with simple assignment, i.e. `fontdata.familyName = 'New Name'`, but sometimes the `.set()` helper may be more convenient.
+
+```js
+let fontdata = { familyName: 'Lemons' }
+
+GLYPHS.set(fontdata, 'designer', 'Proud Parent')
+GLYPHS.set(fontdata, 'familyName', name => `Updated ${name}`)
+// fontdata = {
+//   designer: 'Proud Parent',
+//   familyName: 'Updated Lemons'
 // }
 ```
 
