@@ -1,3 +1,4 @@
+module.exports.build = require('./lib/build')
 module.exports.load = require('./lib/load')
 module.exports.map = require('./lib/map')
 module.exports.subset = require('./lib/subset')
