@@ -15,7 +15,7 @@ The API described below is functional but may change. Testing and contributions 
     npm install --save make-glyphs
 
 
-## Usage
+## Programmatic Usage
 
 ```js
 const GLYPHS = require('make-glyphs')
@@ -26,6 +26,8 @@ GLYPHS.load('my-font.glyphs')
   .then(font => GLYPHS.subset(font, ['0021', ['0041', '005A']]))
   // increment the minor version
   .then(font => GLYPHS.version(font))
+  // rename the font
+  .then(font => GLYPHS.set(font, 'familyName', 'New Font'))
   // write the changes to a new font file
   .then(font => GLYPHS.write('new-font.glyphs', font))
 ```
