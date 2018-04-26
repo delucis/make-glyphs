@@ -51,5 +51,13 @@ if (!config.builds) {
   console.error(`Config file does not contain a “builds” object`)
   process.exit(1)
 }
-BUILD(config.builds)
-
+if (ARGS.build) {
+  const build = config.builds[ARGS.build]
+  if (!build) {
+    console.error(`Config file does not contain a build named “${ARGS.build}”`)
+    process.exit(1)
+  }
+  BUILD({ build })
+} else {
+  BUILD(config.builds)
+}
