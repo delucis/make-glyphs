@@ -1,6 +1,7 @@
 module.exports.build = require('./lib/build')
 module.exports.load = require('./lib/load')
 module.exports.map = require('./lib/map')
+module.exports.set = require('./lib/set')
 module.exports.subset = require('./lib/subset')
 module.exports.validate = require('./lib/validate')
 module.exports.version = require('./lib/version')
