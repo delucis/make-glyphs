@@ -24,6 +24,9 @@
     "lib/*",
     "index.js"
   ],
+  "bin": {
+    "make-glyphs": "bin/cli.js"
+  },
   "keywords": [
     "glyphs",
     "fonts",
