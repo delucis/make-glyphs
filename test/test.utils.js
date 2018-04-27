@@ -26,3 +26,7 @@ test('"007a" is a unicode string', test => {
 test('"XO90" is not a unicode string', test => {
   test.true(utils.isUnicodeString('0075'))
 })
+
+test('get codepoints from a string', test => {
+  test.deepEqual(utils.stringToCodepoints('AB'), ['0041', '0042'])
+})
