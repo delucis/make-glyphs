@@ -1,6 +1,7 @@
 # make-glyphs API documentation
 
 - [`.build(builds)`](#buildbuilds)
+- [`.expandComponents(fontdata, [options])`](#expandComponentsfontdata-options)
 - [`.load(filepath)`](#loadfilepath)
 - [`.map(fontdata, mapping, [options])`](#mapfontdata-mapping-options)
 - [`.set(fontdata, key, value)`](#setfontdata-key-value)
@@ -43,6 +44,23 @@ GLYPHS.load('my-font.glyphs')
   .then(font => GLYPHS.set(font, 'familyName', 'My Subset Font'))
   .then(GLYPHS.version)
   .then(font => GLYPHS.write('my-subset-font.glyphs', font))
+```
+
+
+## .expandComponents(fontdata, [options])
+
+- `fontdata` — an `Object` representing a Glyphs file.
+
+- `options` — an optional `Object` with any of the following properties:
+
+  - `glyphs` — an `Array` of glyphs to expand components for, defaults to all glyphs in `fontdata`
+
+  - `maxDepth` — the maximum `Number` of recursions before the expansion will stop following component references. Most fonts won’t have more than one or two levels of reference, but if you get an error you can try raising the `maxDepth` option. Defaults to `10`.
+
+Expand any components in use by your glyphs to explicit paths.
+
+```js
+let expandedFont = GLYPHS.expandComponents(fontdata)
 ```
 
 
