@@ -34,7 +34,7 @@ test('builds without a load property throw', async test => {
   const builds = {
     'builds without a load property throw': { write: '' }
   }
-  const err = await test.throws(makeGlyphs.build(builds))
+  const err = await test.throwsAsync(makeGlyphs.build(builds))
   test.is(err.name, 'TypeError')
   test.true(err.message.endsWith('must have a load property!'))
 })
@@ -43,7 +43,7 @@ test('builds without a write property throw', async test => {
   const builds = {
     'builds without a write property throw': { load: 'test/test.glyphs' }
   }
-  const err = await test.throws(makeGlyphs.build(builds))
+  const err = await test.throwsAsync(makeGlyphs.build(builds))
   test.is(err.name, 'TypeError')
   test.true(err.message.endsWith('must have a write property!'))
 })

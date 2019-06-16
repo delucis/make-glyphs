@@ -11,6 +11,6 @@ test('load & validate file', async test => {
 })
 
 test('load & fail to validate', async test => {
-  const err = await test.throws(load(testPlist))
+  const err = await test.throwsAsync(load(testPlist))
   test.is(err.name, 'ValidationError')
 })
