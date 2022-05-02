@@ -26,3 +26,38 @@ test('"007a" is a unicode string', test => {
 test('"XO90" is not a unicode string', test => {
   test.true(utils.isUnicodeString('0075'))
 })
+
+test('get codepoints from a string', test => {
+  test.deepEqual(utils.stringToCodepoints('AB'), ['0041', '0042'])
+})
+
+test('ensure a number is unicode', test => {
+  test.is(utils.ensureUnicode(65), '0041')
+})
+
+test('ensure a unicode string is unicode', test => {
+  test.is(utils.ensureUnicode('007a'), '007A')
+})
+
+test('ensure a glyph name is unicode', test => {
+  test.is(utils.ensureUnicode('Aacute'), '00C1')
+})
+
+test('ensure a character is unicode', test => {
+  test.is(utils.ensureUnicode('%'), '0025')
+})
+
+test('ensuring an invalid character string throws', test => {
+  const err = test.throws(() => { utils.ensureUnicode('%%') }, Error)
+  test.is(err.message, 'Could not interpret “%%” as a unicode character.')
+})
+
+test('ensuring an array is unicode throws', test => {
+  const err = test.throws(() => { utils.ensureUnicode(['X']) }, Error)
+  test.is(err.message, 'Could not interpret “X” as a unicode character.')
+})
+
+test('ensuring an object is unicode throws', test => {
+  const err = test.throws(() => { utils.ensureUnicode({}) }, Error)
+  test.is(err.message, 'Could not interpret “[object Object]” as a unicode character.')
+})

@@ -1,4 +1,5 @@
 module.exports.build = require('./lib/build')
+module.exports.expandComponents = require('./lib/expand-components')
 module.exports.load = require('./lib/load')
 module.exports.map = require('./lib/map')
 module.exports.set = require('./lib/set')
